@@ -1,0 +1,22 @@
+{
+  "name": "jarvis-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathansimpson95/jarvis-api.git"
+  },
+  "author": "Nathan Simpson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nathansimpson95/jarvis-api/issues"
+  },
+  "homepage": "https://github.com/nathansimpson95/jarvis-api#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
