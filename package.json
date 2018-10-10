@@ -29,6 +29,7 @@
     "emoji-datasource-apple": "^4.1.0",
     "express": "^4.16.3",
     "morgan": "^1.9.1",
-    "puppeteer": "^1.8.0"
+    "puppeteer": "^1.8.0",
+    "twit": "^2.2.11"
   }
 }
