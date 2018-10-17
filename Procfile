@@ -1,2 +1,2 @@
 web: node dist/index.js
-"heroku-postbuild": "babel lib -d dist"
+"heroku-postinstall"": "babel lib -d dist"
