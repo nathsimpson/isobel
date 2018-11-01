@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/nathansimpson95/jarvis-api#readme",
   "dependencies": {
+    "aws-sdk": "^2.346.0",
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
