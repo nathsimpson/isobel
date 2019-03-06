@@ -14,7 +14,7 @@ dotenv.load();
 // active endpoints
 const nasa = require("./endpoints/nasa");
 // const supercars = require("./endpoints/supercars");
-// const twitter = require("./endpoints/twitter");
+const twitter = require("./endpoints/twitter");
 const dribbble = require("./endpoints/dribbble");
 
 const port = process.env.PORT || 4000;
@@ -69,13 +69,9 @@ jrvs.listen(port, err => {
   console.log(`JARVIS-API listening on port ${port}.`);
   const hours = n => n * 60 * 60 * 1000;
 
-  // (async function() {
-  //   let data = await nasa.nasa();
-  //   console.log(data);
-  // })();
-
-  // nasa.fetchPhotoOfTheDay().then(data => console.log(data));
+  nasa.fetchPhotoOfTheDay().then(data => console.log(data));
   dribbble.fetchLatestShots().then(data => console.log(data));
+  twitter.fetchLatestTweets().then(data => console.log(data));
 
   // const cacheNasa = async () => {
   //   await nasa();
