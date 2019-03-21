@@ -1,15 +1,16 @@
-// const readFromS3 = require("./utils/readFromS3");
-const fileSystem = require("./utils/fileSystem");
-// const saveToS3 = require("./utils/saveToS3");
-
-// const sendExpoNotification = require("./utils/expoNotifications");
 const JARVIS = require("./core.js");
 
-// active endpoints
+// utils
+const fileSystem = require("./utils/fileSystem");
+const S3 = require("./utils/S3");
+// const sendExpoNotification = require("./utils/expoNotifications");
+
+// endpoints
 const nasa = require("./endpoints/nasa");
 const twitter = require("./endpoints/twitter");
 const dribbble = require("./endpoints/dribbble");
 
+// initialise
 const jrvs = new JARVIS({
   port: process.env.PORT || 4000
 });
