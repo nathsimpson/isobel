@@ -7,6 +7,17 @@ const port = process.env.PORT || 4000;
 
 dotenv.load();
 
+const cacheEndpoint = async (name, func, interval, cache) => {
+  await func()
+    .then(data => cache.save(name, data))
+    .catch(err => console.log(err));
+};
+
+const startCaching = (name, func, interval, cache) => {
+  cacheEndpoint(name, func, interval, cache);
+  setInterval(() => cacheEndpoint(name, func, interval, cache), interval);
+};
+
 module.exports = class JARVIS {
   constructor(config) {
     this.express = express;
@@ -21,7 +32,7 @@ module.exports = class JARVIS {
   async start() {
     const {
       app,
-      config: { port }
+      config: { port, cache, endpoints }
     } = this;
 
     console.log(`JARVIS-API listening on port ${port}.`);
@@ -36,36 +47,23 @@ module.exports = class JARVIS {
 
       app.get("/:endpoint/", async (req, res) => {
         const { endpoint } = req.params;
-        console.log(`> request endpoint ${endpoint}`);
 
-        const requestIp = req.headers["x-forwarded-for"];
-        if (requestIp && unsecuredEndpoints.indexOf(endpoint) === -1) {
-          return res.status(403).end();
-        }
-
-        if (!endpoint) return res.status(404).end();
-        return res.json(await readFromS3(endpoint));
-      });
-
-      app.get("/:endpoint/local", async (req, res) => {
-        const { type, endpoint } = req.params;
-        console.log(`> request endpoint ${endpoint}`);
-
-        const requestIp = req.headers["x-forwarded-for"];
-
-        if (requestIp && unsecuredEndpoints.indexOf(endpoint) === -1) {
-          return res.status(403).end();
-        }
+        // const requestIp = req.headers["x-forwarded-for"];
+        // if (requestIp && unsecuredEndpoints.indexOf(endpoint) === -1) {
+        //   return res.status(403).end();
+        // }
 
         if (!endpoint) return res.status(404).end();
-
-        return res.json(await readFromFile(endpoint));
+        return res.json(await cache.read(endpoint));
       });
 
       app.listen(port, error => {
-        if (error) {
-          return reject(error);
-        }
+        if (error) return reject(error);
+
+        endpoints.forEach(ep =>
+          startCaching(ep.name, ep.func, ep.interval, cache)
+        );
+
         return resolve({ port });
       });
     });

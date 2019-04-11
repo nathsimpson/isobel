@@ -10,36 +10,36 @@ const nasa = require("./endpoints/nasa");
 const twitter = require("./endpoints/twitter");
 const dribbble = require("./endpoints/dribbble");
 
+const hours = n => n * 60 * 60 * 1000;
+
+const endpoints = [
+  {
+    name: "dribbble",
+    func: dribbble.fetchLatestShots,
+    interval: hours(24)
+  },
+  {
+    name: "twitter",
+    func: twitter.fetchLatestTweets,
+    interval: hours(6)
+  },
+  {
+    name: "nasa",
+    func: nasa.fetchPhotoOfTheDay,
+    interval: hours(24)
+  }
+];
+
 // initialise
 const jrvs = new JARVIS({
-  port: process.env.PORT || 4000
+  port: process.env.PORT || 4000,
+  cache: fileSystem,
+  endpoints
 });
 
 jrvs.start();
 
-const cache = (endpoint, data) => fileSystem.saveFile(endpoint, data);
-
 jrvs.app.listen(err => {
   if (err) console.error(err);
-  const hours = n => n * 60 * 60 * 1000;
-
-  const cacheNasa = async () => {
-    await nasa.fetchPhotoOfTheDay().then(data => cache("nasa", data));
-    setTimeout(cacheNasa, hours(24));
-  };
-
-  const cacheTwitter = async () => {
-    await twitter.fetchLatestTweets().then(data => cache("twitter", data));
-    setTimeout(cacheTwitter, hours(1));
-  };
-
-  const cacheDribbble = async () => {
-    await dribbble.fetchLatestShots().then(data => cache("dribbble", data));
-    setTimeout(cacheDribbble, hours(24));
-  };
-
   console.log("> starting caching");
-  cacheNasa();
-  cacheTwitter();
-  cacheDribbble();
 });
