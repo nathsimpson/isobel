@@ -3,7 +3,7 @@ const path = require("path");
 
 exports.save = async (endpoint, data) =>
   new Promise(resolve => {
-    const filePath = path.join(__dirname, `/../cache/${endpoint}.json`);
+    const filePath = path.join(__dirname, `/../../cache/${endpoint}.json`);
 
     console.log(filePath);
     fs.writeFileSync(filePath, JSON.stringify(data));
