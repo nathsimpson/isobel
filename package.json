@@ -2,11 +2,8 @@
   "name": "jarvis-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "nodemon lib/index.js --exec babel-node",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel lib -d dist"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -34,5 +31,17 @@
     "morgan": "^1.9.1",
     "puppeteer": "^1.8.0",
     "twit": "^2.2.11"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ],
+    "plugins": []
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "lib/cache/*.json"
+    ]
   }
 }
