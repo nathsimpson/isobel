@@ -14,17 +14,17 @@ const hours = n => n * 60 * 60 * 1000;
 
 const endpoints = [
   {
-    name: "dribbble2",
+    name: "dribbble",
     func: dribbble.fetchLatestShots,
     interval: hours(24)
   },
   {
-    name: "twitter2",
+    name: "twitter",
     func: twitter.fetchLatestTweets,
     interval: hours(6)
   },
   {
-    name: "nasa2",
+    name: "nasa",
     func: nasa.fetchPhotoOfTheDay,
     interval: hours(24)
   }
