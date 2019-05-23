@@ -3,6 +3,7 @@ const cors = require("cors");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const CFonts = require("cfonts");
 const port = process.env.PORT || 4000;
 
 dotenv.load();
@@ -35,7 +36,13 @@ module.exports = class JARVIS {
       config: { port, cache, endpoints }
     } = this;
 
-    console.log(`JARVIS-API listening on port ${port}.`);
+    CFonts.say("JARVIS", {
+      font: "3d", // define the font face
+      align: "left", // define text alignment
+      colors: ["yellow", "cyan"] // define all colors
+    });
+
+    console.log(`🤖 JARVIS listening on port ${port}.`);
 
     return new Promise((resolve, reject) => {
       app.get("/", (req, res) => {

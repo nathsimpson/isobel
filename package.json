@@ -23,6 +23,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "body-parser": "^1.18.3",
+    "cfonts": "^2.4.3",
     "cors": "^2.8.4",
     "dotenv": "^6.1.0",
     "emoji-datasource-apple": "^4.1.0",

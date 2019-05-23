@@ -12,10 +12,10 @@ exports.save = async (endpoint, data) =>
       },
       err => {
         if (err) {
-          console.log("> error saving to s3", err);
+          console.log("❌ error saving to s3", err);
           return reject();
         }
-        console.log(`> saved ${endpoint} to s3`);
+        console.log(`✅ saved ${endpoint} to s3`);
         return resolve();
       }
     );

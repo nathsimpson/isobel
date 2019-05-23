@@ -41,5 +41,5 @@ jrvs.start();
 
 jrvs.app.listen(err => {
   if (err) console.error(err);
-  console.log("> starting caching");
+  console.log("⚙️ Starting caching");
 });
