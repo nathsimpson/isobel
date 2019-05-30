@@ -1,4 +1,4 @@
-const JARVIS = require("./packages/core");
+const ISOBEL = require("./packages/core");
 
 // utils
 const fileSystem = require("./packages/fileSystem");
@@ -31,15 +31,15 @@ const endpoints = [
 ];
 
 // initialise
-const jrvs = new JARVIS({
+const iz = new ISOBEL({
   port: process.env.PORT || 3000,
   cache: process.env.NODE_ENV == "production" ? S3 : fileSystem,
   endpoints
 });
 
-jrvs.start();
+iz.start();
 
-jrvs.app.listen(err => {
+iz.app.listen(err => {
   if (err) console.error(err);
   console.log("⚙️ Starting caching");
 });

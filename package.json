@@ -1,5 +1,5 @@
 {
-  "name": "jarvis-api",
+  "name": "isobel-api",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -7,14 +7,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nathansimpson95/jarvis-api.git"
+    "url": "git+https://github.com/nathansimpson95/isobel.git"
   },
   "author": "Nathan Simpson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nathansimpson95/jarvis-api/issues"
+    "url": "https://github.com/nathansimpson95/isobel/issues"
   },
-  "homepage": "https://github.com/nathansimpson95/jarvis-api#readme",
+  "homepage": "https://github.com/nathansimpson95/isobel#readme",
   "dependencies": {
     "aws-sdk": "^2.346.0",
     "axios": "^0.18.0",

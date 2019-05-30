@@ -1,26 +1,26 @@
-# JARVIS
+# ISOBEL 🐶
 
 ## Ideal API
 
 ```
-import JARVIS from (@jarvis/core)
-import Twitter from (@jarvis/twitter)
+import ISOBEL from (@isobel/core)
+import Twitter from (@isobel/twitter)
 
-const JRVS = new JARVIS({
+const IZ = new ISOBEL({
     cacheStrategy: 's3',
 })
 
-JRVS.get("/welcome", (req, res) => {
-  return res.send("Hello. My name is JARVIS");
+IZ.get("/welcome", (req, res) => {
+  return res.send("Hello. My name is ISOBEL");
 });
 
-JRVS.addService(Twitter, {
+IZ.addService(Twitter, {
     time,
     username,
     apikeys
 })
 
-JRVS.addService(
+IZ.addService(
 
 )
 ```

@@ -19,7 +19,7 @@ const startCaching = (name, func, interval, cache) => {
   setInterval(() => cacheEndpoint(name, func, interval, cache), interval);
 };
 
-module.exports = class JARVIS {
+module.exports = class ISOBEL {
   constructor(config) {
     this.express = express;
     this.app = express();
@@ -36,21 +36,21 @@ module.exports = class JARVIS {
       config: { port, cache, endpoints }
     } = this;
 
-    CFonts.say("JARVIS", {
+    CFonts.say("ISOBEL", {
       font: "3d", // define the font face
       align: "left", // define text alignment
       colors: ["yellow", "cyan"] // define all colors
     });
 
-    console.log(`🤖 JARVIS listening on port ${port}.`);
+    console.log(`🤖 ISOBEL listening on port ${port}.`);
 
     return new Promise((resolve, reject) => {
       app.get("/", (req, res) => {
-        // sendExpoNotification("JARVIS ROOT ACCESS DENIED");
+        // sendExpoNotification("ISOBEL ROOT ACCESS DENIED");
         res.status(404).end();
       });
 
-      app.get("/welcome", (req, res) => res.send("Hello. My name is JARVIS"));
+      app.get("/welcome", (req, res) => res.send("Hello. My name is ISOBEL"));
 
       app.get("/:endpoint/", async (req, res) => {
         const { endpoint } = req.params;

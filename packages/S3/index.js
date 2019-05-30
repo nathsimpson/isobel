@@ -6,7 +6,7 @@ exports.save = async (endpoint, data) =>
   new Promise((resolve, reject) => {
     s3.putObject(
       {
-        Bucket: "jrvs-cache",
+        Bucket: "iz-cache",
         Key: `cache/${endpoint}.json`,
         Body: JSON.stringify(data)
       },
@@ -25,7 +25,7 @@ exports.read = async endpoint =>
   new Promise((resolve, reject) => {
     s3.getObject(
       {
-        Bucket: "jrvs-cache",
+        Bucket: "iz-cache",
         Key: `cache/${endpoint}.json`
       },
       (err, res) => {
