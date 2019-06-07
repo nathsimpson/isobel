@@ -9,6 +9,7 @@ const S3 = require("@isobel/s3");
 const nasa = require("@isobel/nasa");
 const twitter = require("@isobel/twitter");
 const dribbble = require("@isobel/dribbble");
+const youtube = require("@isobel/youtube");
 
 const hours = n => n * 60 * 60 * 1000;
 
@@ -26,6 +27,11 @@ const endpoints = [
   {
     name: "nasa",
     func: nasa.fetchPhotoOfTheDay,
+    interval: hours(24)
+  },
+  {
+    name: "youtube",
+    func: youtube.getChannelStats,
     interval: hours(24)
   }
 ];
