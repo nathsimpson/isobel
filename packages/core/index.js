@@ -11,7 +11,7 @@ dotenv.load();
 const cacheEndpoint = async (name, func, interval, cache) => {
   await func()
     .then(data => cache.save(name, data))
-    .catch(err => console.log("error in core", err));
+    .catch(err => console.log(`❌ ERROR caching ${name} -`, err.message));
 };
 
 const startCaching = (name, func, interval, cache) => {
@@ -42,7 +42,7 @@ module.exports = class ISOBEL {
       colors: ["yellow", "cyan"] // define all colors
     });
 
-    console.log(`🤖 ISOBEL listening on port ${port}.`);
+    console.log(`🐶 ISOBEL listening on port ${port}.`);
 
     return new Promise((resolve, reject) => {
       app.get("/", (req, res) => {

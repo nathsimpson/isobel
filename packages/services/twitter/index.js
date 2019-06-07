@@ -11,12 +11,12 @@ const T = new Twit({
 
 exports.fetchLatestTweets = async () => {
   const final = await T.get("statuses/user_timeline", {
-    screen_name: "nathansimpson95",
+    screen_name: "nathjsimpson",
     count: 10,
     exclude_replies: true,
     include_rts: false
-  }).catch(function(err) {
-    console.log("caught error", err.stack);
+  }).catch(err => {
+    throw new Error(err.message);
   });
 
   return final.data.map(tweet => ({

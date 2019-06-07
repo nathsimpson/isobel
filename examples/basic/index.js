@@ -31,15 +31,15 @@ const endpoints = [
 ];
 
 // initialise
-const iz = new ISOBEL({
+const Isobel = new ISOBEL({
   port: process.env.PORT || 3000,
   cache: process.env.NODE_ENV == "production" ? S3 : fileSystem,
   endpoints
 });
 
-iz.start();
+Isobel.start();
 
-iz.app.listen(err => {
+Isobel.app.listen(err => {
   if (err) console.error(err);
   console.log("⚙️ Starting caching");
 });
