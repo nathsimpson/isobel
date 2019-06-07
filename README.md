@@ -1,26 +1,41 @@
 # ISOBEL 🐶
 
-## Ideal API
+Welcome!
+Isobel is beginner-friendly NODE.js framework for caching data in API responses, so it can be used on your website.
 
-```
-import ISOBEL from (@isobel/core)
-import Twitter from (@isobel/twitter)
+Services are API endpoints that Jarvis will request from. A great example is Twitter, which gets the latest posrts from your Twitter feed. Isobel includes a bunch of premade services, but you can also create your own.
 
-const IZ = new ISOBEL({
-    cacheStrategy: 's3',
-})
+Here is a minumum implementation of Isobel.
 
-IZ.get("/welcome", (req, res) => {
-  return res.send("Hello. My name is ISOBEL");
+```javascript
+const ISOBEL = require("@isobel/core");
+const fileSystem = require("@isobel/file-system");
+
+// services
+const nasa = require("@isobel/nasa");
+const twitter = require("@isobel/twitter");
+const dribbble = require("@isobel/dribbble");
+
+const hours = n => n * 60 * 60 * 1000;
+
+// initialise Isobel
+const Isobel = new ISOBEL({
+  port: 3000, // what port the process will run on your machine
+  cache: fileSystem, // where the data will be stored
+  endpoints: [
+    // a list of all the services that will be requested from.
+    {
+      name: "nasa", // name of the file that will be created
+      func: nasa.fetchPhotoOfTheDay, // the function that will return the data
+      interval: hours(24) // how often the data will be fetched
+    }
+  ]
 });
 
-IZ.addService(Twitter, {
-    time,
-    username,
-    apikeys
-})
+Isobel.start();
 
-IZ.addService(
-
-)
+Isobel.app.listen(err => {
+  if (err) console.error(err);
+  console.log("⚙️ Starting caching");
+});
 ```

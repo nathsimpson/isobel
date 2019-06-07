@@ -11,7 +11,7 @@ dotenv.load();
 const cacheEndpoint = async (name, func, interval, cache) => {
   await func()
     .then(data => cache.save(name, data))
-    .catch(err => console.log(err));
+    .catch(err => console.log("error in core", err));
 };
 
 const startCaching = (name, func, interval, cache) => {

@@ -1,14 +1,14 @@
-const ISOBEL = require("./packages/core");
+const ISOBEL = require("@isobel/core");
 
 // utils
-const fileSystem = require("./packages/fileSystem");
-const S3 = require("./packages/S3");
+const fileSystem = require("@isobel/file-system");
+const S3 = require("@isobel/s3");
 // const sendExpoNotification = require("./utils/expoNotifications");
 
 // endpoints
-const nasa = require("./packages/endpoints/nasa");
-const twitter = require("./packages/endpoints/twitter");
-const dribbble = require("./packages/endpoints/dribbble");
+const nasa = require("@isobel/nasa");
+const twitter = require("@isobel/twitter");
+const dribbble = require("@isobel/dribbble");
 
 const hours = n => n * 60 * 60 * 1000;
 

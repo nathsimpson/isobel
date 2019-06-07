@@ -1,20 +1,28 @@
 {
-  "name": "isobel-api",
+  "name": "isobel-monorepo",
   "version": "1.0.0",
   "description": "",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "!packages/services",
+    "packages/services/*"
+  ],
   "scripts": {
-    "start": "node index.js"
+    "start": "node examples/basic/index.js",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nathansimpson95/isobel.git"
+    "url": "git+https://github.com/nathsimpson/isobel.git"
   },
   "author": "Nathan Simpson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nathansimpson95/isobel/issues"
+    "url": "https://github.com/nathsimpson/isobel/issues"
   },
-  "homepage": "https://github.com/nathansimpson95/isobel#readme",
+  "homepage": "https://github.com/nathsimpson/isobel#readme",
   "dependencies": {
     "aws-sdk": "^2.346.0",
     "axios": "^0.18.0",
@@ -30,8 +38,7 @@
     "expo-server-sdk": "^3.0.1",
     "express": "^4.16.3",
     "morgan": "^1.9.1",
-    "puppeteer": "^1.8.0",
-    "twit": "^2.2.11"
+    "puppeteer": "^1.8.0"
   },
   "babel": {
     "presets": [
@@ -44,5 +51,9 @@
     "ignore": [
       "lib/cache/*.json"
     ]
+  },
+  "devDependencies": {
+    "docz": "^1.2.0",
+    "docz-theme-default": "^1.2.0"
   }
 }
