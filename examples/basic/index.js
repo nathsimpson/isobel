@@ -10,6 +10,7 @@ const nasa = require("@isobel/nasa");
 const twitter = require("@isobel/twitter");
 const dribbble = require("@isobel/dribbble");
 const youtube = require("@isobel/youtube");
+const github = require("@isobel/github");
 
 const hours = n => n * 60 * 60 * 1000;
 
@@ -32,6 +33,11 @@ const endpoints = [
   {
     name: "youtube",
     func: youtube.getChannelStats,
+    interval: hours(24)
+  },
+  {
+    name: "github",
+    func: github.getProfile,
     interval: hours(24)
   }
 ];

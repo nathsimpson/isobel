@@ -1,0 +1,13 @@
+{
+  "title": "Isobel",
+  "themeConfig": {
+    "colors": {
+      "primary": "#5d2aea"
+    },
+    "styles": {
+      "h1": "color: #5d2aea; font-size: 4em"
+    },
+    "files": "**/*.{md,markdown,mdx}",
+    "ignore": ["scratchpad.md"]
+  }
+}
