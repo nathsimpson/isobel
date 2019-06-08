@@ -1,0 +1,8 @@
+{
+  "name": "@isobel/github",
+  "version": "0.0.1",
+  "author": "Nathan Simpson",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
