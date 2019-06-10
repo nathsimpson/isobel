@@ -18,12 +18,18 @@ const endpoints = [
   {
     name: "dribbble",
     func: dribbble.fetchLatestShots,
-    interval: hours(24)
+    interval: hours(24),
+    params: {
+      accessToken: process.env.DRIBBBLE_ACCESS_TOKEN
+    }
   },
   {
     name: "twitter",
     func: twitter.fetchLatestTweets,
-    interval: hours(6)
+    interval: hours(6),
+    params: {
+      username: "nathjsimpson"
+    }
   },
   {
     name: "nasa",
@@ -33,7 +39,10 @@ const endpoints = [
   {
     name: "youtube",
     func: youtube.getChannelStats,
-    interval: hours(24)
+    interval: hours(24),
+    params: {
+      channelId: "UCa__hNMzVWIQOHErctX0leg";
+    }
   },
   {
     name: "github",

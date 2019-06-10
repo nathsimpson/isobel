@@ -9,9 +9,16 @@ const T = new Twit({
   strictSSL: true // optional - requires SSL certificates to be valid.
 });
 
-exports.fetchLatestTweets = async () => {
+exports.fetchLatestTweets = async params => {
+  // check if all params are set
+  ["username"].forEach(key => {
+    if (!params[key]) {
+      throw new Error(`${key} is not set in params`);
+    }
+  });
+
   const final = await T.get("statuses/user_timeline", {
-    screen_name: "nathjsimpson",
+    screen_name: params.username,
     count: 10,
     exclude_replies: true,
     include_rts: false

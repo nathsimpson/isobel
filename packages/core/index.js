@@ -8,15 +8,18 @@ const port = process.env.PORT || 4000;
 
 dotenv.load();
 
-const cacheEndpoint = async (name, func, interval, cache) => {
-  await func()
+const cacheEndpoint = async (name, func, interval, cache, params) => {
+  await func(params)
     .then(data => cache.save(name, data))
     .catch(err => console.log(`❌ ERROR caching ${name} -`, err.message));
 };
 
-const startCaching = (name, func, interval, cache) => {
-  cacheEndpoint(name, func, interval, cache);
-  setInterval(() => cacheEndpoint(name, func, interval, cache), interval);
+const startCaching = (name, func, interval, cache, params) => {
+  cacheEndpoint(name, func, interval, cache, params);
+  setInterval(
+    () => cacheEndpoint(name, func, interval, cache, params),
+    interval
+  );
 };
 
 module.exports = class ISOBEL {
@@ -68,7 +71,7 @@ module.exports = class ISOBEL {
         if (error) return reject(error);
 
         endpoints.forEach(ep =>
-          startCaching(ep.name, ep.func, ep.interval, cache)
+          startCaching(ep.name, ep.func, ep.interval, cache, ep.params)
         );
 
         return resolve({ port });
