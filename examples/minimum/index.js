@@ -6,7 +6,7 @@ const nasa = require("@isobel/nasa");
 const Isobel = new ISOBEL({
   port: 3000,
   cache: fileSystem,
-  endpoints: [
+  services: [
     {
       name: "nasa",
       func: nasa.fetchPhotoOfTheDay,

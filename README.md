@@ -18,7 +18,7 @@ const nasa = require("@isobel/nasa");
 // initialise
 const Isobel = new ISOBEL({
   cache: fileSystem,
-  endpoints: [
+  services: [
     {
       name: "nasa",
       func: nasa.fetchPhotoOfTheDay, // gets the NASA photo of the day

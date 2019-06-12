@@ -4,7 +4,7 @@ const ISOBEL = require("@isobel/core");
 const fileSystem = require("@isobel/file-system");
 const S3 = require("@isobel/s3");
 
-// endpoints
+// services
 const nasa = require("@isobel/nasa");
 const twitter = require("@isobel/twitter");
 const dribbble = require("@isobel/dribbble");
@@ -13,7 +13,7 @@ const github = require("@isobel/github");
 
 const hours = n => n * 60 * 60 * 1000;
 
-const endpoints = [
+const services = [
   {
     name: "dribbble",
     func: dribbble.fetchLatestShots,
@@ -54,7 +54,7 @@ const endpoints = [
 const Isobel = new ISOBEL({
   port: process.env.PORT || 3000,
   cache: process.env.NODE_ENV === "production" ? S3 : fileSystem,
-  endpoints
+  services
 });
 
 Isobel.start().catch(error => {

@@ -37,7 +37,7 @@ module.exports = class ISOBEL {
   async start() {
     const {
       app,
-      config: { cache, endpoints }
+      config: { cache, services }
     } = this;
 
     CFonts.say("ISOBEL", {
@@ -67,7 +67,7 @@ module.exports = class ISOBEL {
 
         if (error) return reject(error);
 
-        endpoints.forEach(ep =>
+        services.forEach(ep =>
           startCaching(ep.name, ep.func, ep.interval, cache, ep.params)
         );
 
