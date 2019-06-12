@@ -58,9 +58,7 @@ const Isobel = new ISOBEL({
   endpoints
 });
 
-Isobel.start();
-
-Isobel.app.listen(err => {
-  if (err) console.error(err);
-  console.log("⚙️ Starting caching");
+Isobel.start().catch(error => {
+  console.error("Error:", error);
+  process.exit(1);
 });

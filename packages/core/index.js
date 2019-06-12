@@ -68,6 +68,8 @@ module.exports = class ISOBEL {
       });
 
       app.listen(port, error => {
+        console.log("⚙️ Starting caching");
+
         if (error) return reject(error);
 
         endpoints.forEach(ep =>
