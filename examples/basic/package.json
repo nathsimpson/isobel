@@ -1,0 +1,18 @@
+{
+  "name": "isobel-basic-example",
+  "private": true,
+  "author": "Nathan Simpson",
+  "scripts:": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@isobel/core": "^0.0.1",
+    "@isobel/file-system": "^0.0.1",
+    "@isobel/s3": "^0.0.1",
+    "@isobel/nasa": "^0.0.1",
+    "@isobel/twitter": "^0.0.1",
+    "@isobel/dribbble": "^0.0.1",
+    "@isobel/youtube": "^0.0.1",
+    "@isobel/github": "^0.0.1"
+  }
+}

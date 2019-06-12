@@ -11,7 +11,9 @@
     "start": "node examples/basic/index.js",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "test": "jest"
+    "test": "jest",
+    "format": "prettier --write \"**/*.js{,on}\" \"**/*.md\"",
+    "lint:eslint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -42,7 +44,11 @@
     "babel-preset-stage-2": "^6.24.1",
     "docz": "^1.2.0",
     "docz-theme-default": "^1.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.14.0",
     "jest": "^24.8.0",
-    "yarn": "^1.16.0"
+    "prettier": "1.18.2"
   }
 }

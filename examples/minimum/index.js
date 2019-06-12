@@ -10,7 +10,7 @@ const Isobel = new ISOBEL({
     {
       name: "nasa",
       func: nasa.fetchPhotoOfTheDay,
-      interval: 24 * 60 * 60 * 1000;
+      interval: 24 * 60 * 60 * 1000
     }
   ]
 });

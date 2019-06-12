@@ -1,4 +1,5 @@
 const axios = require("axios");
+
 const apiKey = process.env.YOUTUBE_API_KEY;
 
 exports.getChannelStats = async params => {
@@ -10,9 +11,7 @@ exports.getChannelStats = async params => {
   });
 
   const result = await axios(
-    `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${
-      params.channelId
-    }&key=${apiKey}`
+    `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${params.channelId}&key=${apiKey}`
   ).catch(err => {
     throw new Error(err.response.statusText);
   });

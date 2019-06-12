@@ -3,7 +3,6 @@ const ISOBEL = require("@isobel/core");
 // utils
 const fileSystem = require("@isobel/file-system");
 const S3 = require("@isobel/s3");
-// const sendExpoNotification = require("./utils/expoNotifications");
 
 // endpoints
 const nasa = require("@isobel/nasa");
@@ -54,7 +53,7 @@ const endpoints = [
 // initialise
 const Isobel = new ISOBEL({
   port: process.env.PORT || 3000,
-  cache: process.env.NODE_ENV == "production" ? S3 : fileSystem,
+  cache: process.env.NODE_ENV === "production" ? S3 : fileSystem,
   endpoints
 });
 

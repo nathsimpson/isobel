@@ -1,4 +1,5 @@
 const axios = require("axios");
+
 const accessToken = process.env.GITHUB_ACCESS_TOKEN;
 
 exports.getProfile = async () => {

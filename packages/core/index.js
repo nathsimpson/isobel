@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const CFonts = require("cfonts");
+
 const port = process.env.PORT || 4000;
 
 dotenv.load();
@@ -36,7 +37,7 @@ module.exports = class ISOBEL {
   async start() {
     const {
       app,
-      config: { port, cache, endpoints }
+      config: { cache, endpoints }
     } = this;
 
     CFonts.say("ISOBEL", {
@@ -49,7 +50,6 @@ module.exports = class ISOBEL {
 
     return new Promise((resolve, reject) => {
       app.get("/", (req, res) => {
-        // sendExpoNotification("ISOBEL ROOT ACCESS DENIED");
         res.status(404).end();
       });
 
@@ -57,11 +57,6 @@ module.exports = class ISOBEL {
 
       app.get("/:endpoint/", async (req, res) => {
         const { endpoint } = req.params;
-
-        // const requestIp = req.headers["x-forwarded-for"];
-        // if (requestIp && unsecuredEndpoints.indexOf(endpoint) === -1) {
-        //   return res.status(403).end();
-        // }
 
         if (!endpoint) return res.status(404).end();
         return res.json(await cache.read(endpoint));
