@@ -41,7 +41,7 @@ const endpoints = [
     func: youtube.getChannelStats,
     interval: hours(24),
     params: {
-      channelId: "UCa__hNMzVWIQOHErctX0leg";
+      channelId: "UCa__hNMzVWIQOHErctX0leg"
     }
   },
   {

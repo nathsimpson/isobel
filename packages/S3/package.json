@@ -1,5 +1,8 @@
 {
   "name": "@isobel/s3",
   "version": "0.0.1",
-  "author": "Nathan Simpson"
+  "author": "Nathan Simpson",
+  "dependencies": {
+    "aws-sdk": "^2.346.0"
+  }
 }

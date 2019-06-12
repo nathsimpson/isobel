@@ -11,7 +11,8 @@
   "scripts": {
     "start": "node examples/basic/index.js",
     "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "docz:build": "docz build",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,23 +24,6 @@
     "url": "https://github.com/nathsimpson/isobel/issues"
   },
   "homepage": "https://github.com/nathsimpson/isobel#readme",
-  "dependencies": {
-    "aws-sdk": "^2.346.0",
-    "axios": "^0.18.0",
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "body-parser": "^1.18.3",
-    "cfonts": "^2.4.3",
-    "cors": "^2.8.4",
-    "dotenv": "^6.1.0",
-    "emoji-datasource-apple": "^4.1.0",
-    "expo-server-sdk": "^3.0.1",
-    "express": "^4.16.3",
-    "morgan": "^1.9.1",
-    "puppeteer": "^1.8.0"
-  },
   "babel": {
     "presets": [
       "es2015",
@@ -53,7 +37,13 @@
     ]
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "docz": "^1.2.0",
-    "docz-theme-default": "^1.2.0"
+    "docz-theme-default": "^1.2.0",
+    "jest": "^24.8.0",
+    "yarn": "^1.16.0"
   }
 }
