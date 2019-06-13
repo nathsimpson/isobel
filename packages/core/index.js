@@ -9,18 +9,16 @@ const port = process.env.PORT || 4000;
 
 dotenv.load();
 
-const cacheEndpoint = async (name, func, interval, cache, params) => {
+const cacheEndpoint = async (service, cache) => {
+  const { name, func, params } = service;
   await func(params)
     .then(data => cache.save(name, data))
     .catch(err => console.log(`❌ ERROR caching ${name} -`, err.message));
 };
 
-const startCaching = (name, func, interval, cache, params) => {
-  cacheEndpoint(name, func, interval, cache, params);
-  setInterval(
-    () => cacheEndpoint(name, func, interval, cache, params),
-    interval
-  );
+const startCaching = (service, cache) => {
+  cacheEndpoint(service, cache);
+  setInterval(() => cacheEndpoint(service, cache), service.interval);
 };
 
 module.exports = class ISOBEL {
@@ -37,7 +35,7 @@ module.exports = class ISOBEL {
   async start() {
     const {
       app,
-      config: { cache, services }
+      config: { cache, services, security }
     } = this;
 
     CFonts.say("ISOBEL", {
@@ -55,11 +53,22 @@ module.exports = class ISOBEL {
 
       app.get("/welcome", (req, res) => res.send("Hello. My name is ISOBEL"));
 
-      app.get("/:endpoint/", async (req, res) => {
-        const { endpoint } = req.params;
+      app.get("/get/:service/", async (req, res) => {
+        const { service } = req.params;
+        const requestIp = req.headers["x-forwarded-for"];
 
-        if (!endpoint) return res.status(404).end();
-        return res.json(await cache.read(endpoint));
+        if (!service) return res.status(404).end();
+
+        if (
+          requestIp &&
+          security &&
+          security.allowedIPs &&
+          security.allowedIPs.indexOf(requestIp) === -1
+        ) {
+          return res.status(403).end();
+        }
+
+        return res.json(await cache.read(service));
       });
 
       app.listen(port, error => {
@@ -67,9 +76,7 @@ module.exports = class ISOBEL {
 
         if (error) return reject(error);
 
-        services.forEach(ep =>
-          startCaching(ep.name, ep.func, ep.interval, cache, ep.params)
-        );
+        services.forEach(service => startCaching(service, cache));
 
         return resolve({ port });
       });

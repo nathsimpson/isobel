@@ -11,6 +11,6 @@ exports.save = async (endpoint, data) =>
 
 exports.read = async endpoint =>
   new Promise(resolve => {
-    const filePath = path.join(__dirname, `/../cache/${endpoint}.json`);
+    const filePath = path.join(__dirname, `/../../cache/${endpoint}.json`);
     return resolve(JSON.parse(fs.readFileSync(filePath, "utf-8")));
   });
