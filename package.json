@@ -3,6 +3,7 @@
   "description": "",
   "private": true,
   "workspaces": [
+    "examples/*",
     "packages/*",
     "!packages/services",
     "packages/services/*"

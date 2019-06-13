@@ -4,7 +4,6 @@ const nasa = require("@isobel/nasa");
 
 // initialise
 const Isobel = new ISOBEL({
-  port: 3000,
   cache: fileSystem,
   services: [
     {

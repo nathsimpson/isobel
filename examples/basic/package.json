@@ -1,6 +1,7 @@
 {
   "name": "isobel-basic-example",
   "private": true,
+  "version": "0.1.0",
   "author": "Nathan Simpson",
   "scripts:": {
     "start": "node index.js"

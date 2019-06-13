@@ -52,7 +52,6 @@ const services = [
 
 // initialise
 const Isobel = new ISOBEL({
-  port: process.env.PORT || 3000,
   cache: process.env.NODE_ENV === "production" ? S3 : fileSystem,
   services
 });

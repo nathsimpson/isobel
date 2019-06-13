@@ -1,8 +1,9 @@
+/dist
+/test
+.env
+.docz
+*.log
 node_modules
 package-lock.json
-/dist
-.env
-/test
 cache
-.docz
 scratchpad.txt
