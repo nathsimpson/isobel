@@ -53,3 +53,15 @@ Isobel.start().catch(error => {
   process.exit(1);
 });
 ```
+
+Excellent! Running `yarn start` will now produce the following...
+
+```
+🐶 ISOBEL listening on port 4000.
+⚙️ Starting caching
+✅ saved nasa to file
+```
+
+Awesome! Now head to `localhost:4000/get/nasa` to see the results!
+
+Congratulations, you are up and running.
