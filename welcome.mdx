@@ -5,10 +5,14 @@ route: "/"
 
 # ISOBEL 🐶
 
-Welcome!
-Isobel is a beginner friendly server framework for fetching data from your social profiles and other sources, for display in your own apps and websites.
+<span style="font-size: 1.5em;">
+  Welcome! Isobel is a beginner friendly server framework for fetching data from
+  your social profiles and other sources, for display in your own apps and
+  websites. Isobel periodically fetches data from the services that you teach
+  her, so the data is always there when you need it.
+</span>
 
-Isobel periodically fetches data from the services that you teach her, so the data is always there when you need it. A great example is Twitter, which gets the latest posts from your Twitter feed. Once configured, you can access the JSON for your latest tweets at a defined URL, so you can display them on your website. That means no worrying about API rate-limiting or quotas, and no making API calls from your frontend (a big no-no).
+A great example is Twitter, which gets the latest posts from your Twitter feed. Once configured, you can access the JSON for your latest tweets at a defined URL, so you can display them on your website. That means no worrying about API rate-limiting or quotas, and no making API calls from your frontend (a big no-no).
 
 Isobel includes a bunch of premade services, but you can also create your own.
 
@@ -39,35 +43,21 @@ Isobel.start().catch(error => {
 });
 ```
 
-Ready to go? head to the [Getting Started guide](./guides/gettingStarted) to...well...get started!
+Ready to go? head to the [Getting Started guide](https://isobeljs.com/guides-getting-started) to...well...get started!
 
 ## Supported services
 
 Isobel supports many services out of the box, here is the full list
 
-### Dribbble
-
-Retrieves your latest shots from Dribbble
-
-### GitHub
-
-Retrives profile information from GitHub
-
-### NASA
-
-Retrives the NASA photo of the day. Treat this one as an example for you to create your own services!
-
-### Twitter
-
-Retrives your latest tweets!
-
-### YouTube
-
-Retrives information about your YouTube Channel
+- [Dribbble](https://isobeljs.com/packages-services-dribbble-readme), retrieves your latest shots from Dribbble
+- [GitHub](https://isobeljs.com/packages-services-github-readme), retrives profile information from GitHub
+- [NASA](https://isobeljs.com/packages-services-nasa-readme), retrives the NASA photo of the day. Treat this one as an example for you to create your own services!
+- [Twitter](https://isobeljs.com/packages-services-twitter-readme), retrives your latest tweets!
+- [YouTube](https://isobeljs.com/packages-services-youtube-readme), retrives information about your YouTube Channel
 
 ## Supported caching strategies
 
 Isobel currently supports two caching strategies, with more on the way!
 
-- local file system
-- Amazon S3 Buckets
+- [Local file system](https://isobeljs.com/packages-file-system-readme)
+- [Amazon S3 Buckets](https://isobeljs.com/packages-s3-readme)
