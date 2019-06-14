@@ -1,6 +1,6 @@
 {
   "name": "@isobel/youtube",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Nathan Simpson",
   "dependencies": {
     "axios": "^0.18.0"

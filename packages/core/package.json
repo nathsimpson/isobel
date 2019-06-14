@@ -1,6 +1,6 @@
 {
   "name": "@isobel/core",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Nathan Simpson",
   "dependencies": {
     "cfonts": "^2.4.3",

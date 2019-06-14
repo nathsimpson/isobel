@@ -1,19 +1,19 @@
 {
   "name": "isobel-basic-example",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Nathan Simpson",
   "scripts:": {
     "start": "node index.js"
   },
   "dependencies": {
-    "@isobel/core": "^0.0.1",
-    "@isobel/file-system": "^0.0.1",
-    "@isobel/s3": "^0.0.1",
-    "@isobel/nasa": "^0.0.1",
-    "@isobel/twitter": "^0.0.1",
-    "@isobel/dribbble": "^0.0.1",
-    "@isobel/youtube": "^0.0.1",
-    "@isobel/github": "^0.0.1"
+    "@isobel/core": "^0.1.0",
+    "@isobel/file-system": "^0.1.0",
+    "@isobel/s3": "^0.1.0",
+    "@isobel/nasa": "^0.1.0",
+    "@isobel/twitter": "^0.1.0",
+    "@isobel/dribbble": "^0.1.0",
+    "@isobel/youtube": "^0.1.0",
+    "@isobel/github": "^0.1.0"
   }
 }
