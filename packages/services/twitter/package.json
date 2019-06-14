@@ -1,6 +1,6 @@
 {
   "name": "@isobel/twitter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Nathan Simpson",
   "dependencies": {
     "twit": "^2.2.11"
