@@ -1,9 +1,10 @@
 const fs = require("fs");
 const path = require("path");
+
 const dir = path.join(__dirname, `/../../../cache/`);
 
 exports.save = async (endpoint, data) =>
-  return new Promise(resolve => {
+  new Promise(resolve => {
     const filePath = `${dir}/${endpoint}.json`;
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir);
