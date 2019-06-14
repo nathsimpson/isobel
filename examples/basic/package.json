@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.2.0",
   "author": "Nathan Simpson",
-  "scripts:": {
+  "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
