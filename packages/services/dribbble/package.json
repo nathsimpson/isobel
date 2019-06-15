@@ -2,6 +2,7 @@
   "name": "@isobel/dribbble",
   "version": "0.1.0",
   "author": "Nathan Simpson",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0"
   }

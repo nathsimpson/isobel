@@ -1,5 +1,6 @@
 {
   "name": "@isobel/file-system",
   "version": "0.1.2",
+  "license": "MIT",
   "author": "Nathan Simpson"
 }

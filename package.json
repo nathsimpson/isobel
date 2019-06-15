@@ -1,6 +1,6 @@
 {
   "name": "isobel-monorepo",
-  "description": "",
+  "description": "A beginner friendly NodeJS framework for fetching data from your social profiles and other sources, to display in your own apps and websites.",
   "private": true,
   "workspaces": [
     "examples/*",
@@ -21,7 +21,7 @@
     "url": "git+https://github.com/nathsimpson/isobel.git"
   },
   "author": "Nathan Simpson",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nathsimpson/isobel/issues"
   },

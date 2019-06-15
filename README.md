@@ -70,3 +70,7 @@ Isobel currently supports two caching strategies, with more on the way!
 
 - local file system
 - Amazon S3 Buckets
+
+## Acknowledgements
+
+Isobel is created by [Nathan Simpson](https://nathansimpson.design). Thank you to Thomas Walker for your inspiration, support and friendship.
