@@ -1,8 +1,3 @@
----
-name: Welcome
-route: "/"
----
-
 # ISOBEL 🐶
 
 [![CircleCI](https://circleci.com/gh/nathsimpson/isobel.svg?style=svg)](https://circleci.com/gh/nathsimpson/isobel)
