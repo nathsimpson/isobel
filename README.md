@@ -11,7 +11,7 @@ A great example is Twitter, which gets the latest posts from your Twitter feed. 
 
 Isobel includes a bunch of premade services, but you can also create your own.
 
-Here is a minumum implementation of Isobel.
+Here is a minimum implementation of Isobel.
 
 ```javascript
 const ISOBEL = require("@isobel/core");

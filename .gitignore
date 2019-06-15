@@ -2,6 +2,7 @@
 /test
 .env
 .docz
+.DS_store
 *.log
 node_modules
 package-lock.json
