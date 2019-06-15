@@ -4,7 +4,7 @@
 
 <span style="font-size: 1.5em;">
 Welcome!
-Isobel is a beginner friendly server framework for fetching data from your social profiles and other sources, for display in your own apps and websites. Isobel periodically fetches data from the services that you teach her, so the data is always there when you need it.
+Isobel is a beginner friendly NodeJS framework for fetching data from your social profiles and other sources, for display in your own apps and websites. Isobel periodically fetches data from the services that you teach her, so the data is always there when you need it.
 </span>
 
 A great example is Twitter, which gets the latest posts from your Twitter feed. Once configured, you can access the JSON for your latest tweets at a defined URL, so you can display them on your website. That means no worrying about API rate-limiting or quotas, and no making API calls from your frontend (a big no-no).

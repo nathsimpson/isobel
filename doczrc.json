@@ -1,5 +1,6 @@
 {
   "title": "Isobel 🐶",
+  "description": "A beginner friendly NodeJS framework for fetching data from your social profiles and other sources, to display in your own apps and websites.",
   "themeConfig": {
     "colors": {
       "primary": "#5d2aea"
