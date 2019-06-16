@@ -1,0 +1,43 @@
+---
+name: Dropbox
+menu: Packages
+---
+
+# @isobel/dropbox
+
+Enables Isobel to use Dropbox for reading/writing cache data.
+
+## Implementing Dropbox caching
+
+To implement Dropbox, run `yarn add @isobel/dropbox` in your project directory, and then import it in your project like this...
+
+```javascript
+const ISOBEL = require("@isobel/core");
+const dropbox = require("@isobel/dropbox");
+
+const Isobel = new ISOBEL({
+  cache: dropbox,
+  services: [] // your list of services here
+});
+
+Isobel.start().catch(error => {
+  console.error("Error:", error);
+  process.exit(1);
+});
+```
+
+## Getting your Dropbox tokens
+
+In order to connect Isobel with your Dropbox account, you will need to generate the correct API tokens. Here are the steps to achieve this.
+
+1. Create a new app at https://www.dropbox.com/developers/apps
+2. Choose App Folder, name it "Isobel"
+3. Copy the App Key, App Secret and 0Auth Access Token. Store them in your .env file using the correct keys (see below in 'Expected env vars')
+
+## Expected env vars
+
+Ensure these keys exist in your .env file, in order for Isobel to work with Dropbox.
+
+- DROPBOX_KEY
+- DROPBOX_SECRET
+- DROPBOX_ACCESS_TOKEN

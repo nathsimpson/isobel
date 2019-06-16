@@ -1,0 +1,10 @@
+{
+  "name": "@isobel/dropbox",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Nathan Simpson",
+  "dependencies": {
+    "dropbox": "^4.0.27",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}
