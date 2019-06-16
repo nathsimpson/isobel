@@ -66,9 +66,10 @@ Retrives information about your YouTube Channel
 
 ## Supported caching strategies
 
-Isobel currently supports two caching strategies, with more on the way!
+Isobel currently supports three caching strategies, with more on the way!
 
 - local file system
+- Dropbox
 - Amazon S3 Buckets
 
 ## Acknowledgements
