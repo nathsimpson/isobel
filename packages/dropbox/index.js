@@ -1,5 +1,6 @@
 const fetch = require("isomorphic-fetch");
-const Dropbox = require("dropbox").Dropbox;
+const { Dropbox } = require("dropbox");
+
 const dbx = new Dropbox({
   accessToken: process.env.DROPBOX_ACCESS_TOKEN,
   fetch
@@ -12,13 +13,13 @@ exports.save = async (endpoint, data) =>
         path: `/${endpoint}.json`,
         contents: JSON.stringify(data)
       })
-      .then(response => {
+      .then(() => {
         console.log(`✅ saved ${endpoint} to Dropbox`);
         return resolve();
       })
       .catch(err => {
         console.log("error", err);
-        return reject({ message: err.response.data });
+        return reject(new Error({ message: err.response.data }));
       });
   });
 
