@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const dir = path.join(__dirname, `/../../../cache/`);
+const dir = path.join(__dirname, `/../../../cache`);
 
 exports.save = async (endpoint, data) =>
   new Promise(resolve => {
