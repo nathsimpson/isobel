@@ -1,12 +1,13 @@
 const AWS = require("aws-sdk");
 
 const s3 = new AWS.S3({ signatureVersion: "v4" });
+const Bucket = process.env.AWS_BUCKET_NAME;
 
 exports.save = async (endpoint, data) =>
   new Promise((resolve, reject) => {
     s3.putObject(
       {
-        Bucket: "iz-cache",
+        Bucket,
         Key: `cache/${endpoint}.json`,
         Body: JSON.stringify(data)
       },
@@ -25,7 +26,7 @@ exports.read = async endpoint =>
   new Promise((resolve, reject) => {
     s3.getObject(
       {
-        Bucket: "iz-cache",
+        Bucket,
         Key: `cache/${endpoint}.json`
       },
       (err, res) => {

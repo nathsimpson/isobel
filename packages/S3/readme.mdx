@@ -7,7 +7,101 @@ menu: Packages
 
 Enables Isobel to interface with an S3 bucket for reading and writing cache artifacts.
 
+## Creating your Amazon S3 Bucket.
+
+Create a free account at with Amazon Web Services([aws.amazon.com](https://aws.amazon.com/)), then go to [Amazon S3](s3.console.aws.amazon.com) and create your first bucket.
+Name the bucket whatever you like. You can leave everything else as default or tweak to your liking.
+
+Specify the name of your S3 Bucket in `.env` file
+
+```
+AWS_BUCKET_NAME=XXXXXXX
+```
+
+## Get your S3 API Keys
+
+Once your bucket is created, we need to give Isobel a way of being able to read/write securely, using API keys.
+There are two ways we can go here, we can either use the API keys for your admin account (which is less secure as they have full access to all of your Amazon AWS services), or we can create a API key specific for Isobel (this is more complex but is way more secure).
+
+### The quick way.
+
+WARNING: This method uses API keys that have full access to all of your Amazon AWS services. This is not the most secure approach, so proceed at your own risk.
+While logged into Amazon S3, click your username at the top-right of the screen, and click 'My Security Credentials'. Underneath Access keys, create a new pair of access keys. Copy these keys into your `.env` file under the following keys...
+
+```
+AWS_ACCESS_KEY_ID=XXXXXXX
+AWS_SECRET_ACCESS_KEY=XXXXXXX
+```
+
+### The secure way (recommended)
+
+The preferred method of giving Isobel access to S3 is to create unique AWS API keys for Isobel, with access permissions scoped to the correct S3 bucket.
+
+#### Create an Access Policy
+
+A policy is a specific permission that you grant to a user. In this case, we want to only grant permissions to read/write to out S3 bucket.
+While logged in to AWS, go to services > IAM, and then click 'Policies' in the sidebar. Create a new Policy using these following settings...
+Services - Add 'S3'
+Actions - tick 'GetObject', 'PutObject' and 'DeleteObject'
+Resources - expand the menu. In the 'Object' section, press 'Add ARN', Enter the following...
+
+- Bucket Name: Type in the name of your S3 Bucket. (e.g. `arn:aws:s3:::my-isobel`).
+- Object Name: Tick the 'Any' box.
+
+In the next scene, name your policy 'AccessIsobel', and save it.
+
+#### Create an IAM User
+
+While logged in to AWS, go to services > IAM, and then click 'Users' in the sidebar.
+Create a new user, and name it whatever you like (e.g. my-isobel). Tick the box that says 'programmatic access', and click next.
+The next scene is permissions, click 'Attach existing policies directly', and attach the 'AccessIsobel' policy you just created.
+
+Skip the 'tags' scene, and review/save the new IAM user. In the next scene, copy the Access Key ID and Secret Access Key, and paste them in your `.env` file.
+
+```
+AWS_ACCESS_KEY_ID=XXXXXXX
+AWS_SECRET_ACCESS_KEY=XXXXXXX
+```
+
+You will not be able to see these credentials again in the AWS interface, but you can generate new ones later if they get forgotten.
+
+## Configure Isobel to use S3
+
+Finally, we have to tell Isobel to use S3 as the caching strategy.
+
+```javascript
+const ISOBEL = require("@isobel/core");
+const S3 = require("@isobel/s3");
+// import your services here
+
+const services = [
+  // initialise your services in here
+];
+
+const Isobel = new ISOBEL({
+  cache: S3,
+  services
+});
+
+Isobel.start().catch(error => {
+  console.error("Error:", error);
+  process.exit(1);
+});
+```
+
+If you would like to, you could also choose to run the filesystem cache while in development.
+
+```javascript
+const Isobel = new ISOBEL({
+  cache: process.env.NODE_ENV === "production" ? S3 : fileSystem,
+  services
+});
+```
+
 ## Expected env vars
 
+S3 interface will not work unless these environment variables are specified.
+
+- AWS_BUCKET_NAME
 - AWS_ACCESS_KEY_ID
 - AWS_SECRET_ACCESS_KEY
