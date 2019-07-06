@@ -1,5 +1,11 @@
 # @isobel/file-system
 
+## 0.1.3
+
+### Patch Changes
+
+- : Fixed broken path
+
 ## 0.1.2
 
 ### Patch Changes
