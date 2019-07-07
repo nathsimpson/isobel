@@ -3,6 +3,7 @@ const ISOBEL = require("@isobel/core");
 // utils
 const fileSystem = require("@isobel/file-system");
 const S3 = require("@isobel/s3");
+const hours = n => n * 60 * 60 * 1000; // returns milliseconds
 
 // services
 const nasa = require("@isobel/nasa");
@@ -10,8 +11,6 @@ const twitter = require("@isobel/twitter");
 const dribbble = require("@isobel/dribbble");
 const youtube = require("@isobel/youtube");
 const github = require("@isobel/github");
-
-const hours = n => n * 60 * 60 * 1000;
 
 const services = [
   {
