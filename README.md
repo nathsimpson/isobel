@@ -11,6 +11,8 @@ A great example is Twitter, which gets the latest posts from your Twitter feed. 
 
 Isobel includes a bunch of premade services, but you can also create your own.
 
+Once Isobel is up and running, you can access your data in a JSON at a specific URL. e.g `(http://example-isobel-url.com/get/(endpoint name)`
+
 Here is a minimum implementation of Isobel.
 
 ```javascript
