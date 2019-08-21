@@ -19,8 +19,7 @@ Here is a minimum implementation of Isobel.
 const ISOBEL = require("@isobel/core");
 const fileSystem = require("@isobel/file-system");
 const nasa = require("@isobel/nasa");
-
-const hours = n => n * 60 * 60 * 1000;
+const toMs = require("to-ms");
 
 // initialise
 const Isobel = new ISOBEL({
@@ -29,7 +28,7 @@ const Isobel = new ISOBEL({
     {
       name: "nasa",
       func: nasa.fetchPhotoOfTheDay, // gets the NASA photo of the day
-      interval: hours(24)
+      interval: toMs.hours(24)
     }
   ]
 });

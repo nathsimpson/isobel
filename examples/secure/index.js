@@ -1,6 +1,7 @@
 const ISOBEL = require("@isobel/core");
 const fileSystem = require("@isobel/file-system");
 const nasa = require("@isobel/nasa");
+const toMs = require("to-ms");
 
 // initialise
 const Isobel = new ISOBEL({
@@ -9,7 +10,7 @@ const Isobel = new ISOBEL({
     {
       name: "nasa",
       func: nasa.fetchPhotoOfTheDay,
-      interval: 24 * 60 * 60 * 1000
+      interval: toMs.hours(24)
     }
   ],
   security: {

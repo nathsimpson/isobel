@@ -3,8 +3,7 @@ const ISOBEL = require("@isobel/core");
 // utils
 const fileSystem = require("@isobel/file-system");
 const S3 = require("@isobel/s3");
-
-const hours = n => n * 60 * 60 * 1000; // returns milliseconds
+const toMs = require("to-ms");
 
 // services
 const nasa = require("@isobel/nasa");
@@ -17,7 +16,7 @@ const services = [
   {
     name: "dribbble",
     func: dribbble.fetchLatestShots,
-    interval: hours(24),
+    interval: toMs.hours(24),
     params: {
       accessToken: process.env.DRIBBBLE_ACCESS_TOKEN
     }
@@ -25,7 +24,7 @@ const services = [
   {
     name: "twitter",
     func: twitter.fetchLatestTweets,
-    interval: hours(6),
+    interval: toMs.hours(6),
     params: {
       username: "nathjsimpson"
     }
@@ -33,12 +32,12 @@ const services = [
   {
     name: "nasa",
     func: nasa.fetchPhotoOfTheDay,
-    interval: hours(24)
+    interval: toMs.hours(24)
   },
   {
     name: "youtube",
     func: youtube.getChannelStats,
-    interval: hours(24),
+    interval: toMs.hours(24),
     params: {
       channelId: "UCa__hNMzVWIQOHErctX0leg"
     }
@@ -46,7 +45,7 @@ const services = [
   {
     name: "github",
     func: github.getProfile,
-    interval: hours(24)
+    interval: toMs.hours(24)
   }
 ];
 

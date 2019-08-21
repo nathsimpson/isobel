@@ -9,6 +9,7 @@
   "dependencies": {
     "@isobel/core": "^0.1.0",
     "@isobel/file-system": "^0.1.0",
-    "@isobel/nasa": "^0.1.0"
+    "@isobel/nasa": "^0.1.0",
+    "to-ms": "1.2.0"
   }
 }

@@ -48,6 +48,7 @@ Then, create an `index.js` file, and copy this code into it.
 const ISOBEL = require("@isobel/core");
 const fileSystem = require("@isobel/file-system");
 const nasa = require("@isobel/nasa");
+const toMs = require("to-ms");
 
 // initialise
 const Isobel = new ISOBEL({
@@ -56,7 +57,7 @@ const Isobel = new ISOBEL({
     {
       name: "nasa", // the name of the cache artifact for the URL
       func: nasa.fetchPhotoOfTheDay, // which function will be run
-      interval: 24 * 60 * 60 * 1000 // how often the cache will be refreshed
+      interval: toMs.hours(24) // how often the cache will be refreshed
     }
   ]
 });

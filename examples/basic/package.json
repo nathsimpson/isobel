@@ -14,6 +14,7 @@
     "@isobel/twitter": "^0.1.0",
     "@isobel/dribbble": "^0.1.0",
     "@isobel/youtube": "^0.1.0",
-    "@isobel/github": "^0.1.0"
+    "@isobel/github": "^0.1.0",
+    "to-ms": "1.2.0"
   }
 }
