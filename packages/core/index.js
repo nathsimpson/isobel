@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const CFonts = require("cfonts");
+const { ApolloServer, gql } = require("apollo-server-express");
 
 const port = process.env.PORT || 4000;
 
@@ -38,13 +39,83 @@ module.exports = class ISOBEL {
       config: { cache, services, security }
     } = this;
 
-    CFonts.say("ISOBEL", {
-      font: "3d", // define the font face
-      align: "left", // define text alignment
-      colors: ["yellow", "cyan"] // define all colors
+    const typeDefs = gql`
+      type Tweet {
+        id: ID!
+        text: String
+        place: String
+        image: String
+      }
+
+      type DribbbleShot {
+        description: String
+        image: String
+        link: String
+      }
+
+      type YouTubeProfile {
+        viewCount: String
+        commentCount: String
+        subscriberCount: String
+        hiddenSubscriberCount: Boolean
+        videoCount: String
+      }
+
+      type GitHubRepository {
+        id: ID!
+        name: String
+        url: String
+      }
+
+      type GitHubRepositories {
+        nodes: [GitHubRepository]
+      }
+
+      type Github {
+        login: String
+        name: String
+        bio: String
+        company: String
+        email: String
+        id: ID!
+        location: String
+        repositories: GitHubRepositories
+      }
+
+      type Query {
+        tweets: [Tweet]
+        github: Github
+        dribbbleShots: [DribbbleShot]
+        youTubeProfile: YouTubeProfile
+      }
+    `;
+
+    const resolvers = {
+      Query: {
+        tweets: () => cache.read("twitter"),
+        github: () => cache.read("github"),
+        dribbbleShots: () => cache.read("dribbble"),
+        youTubeProfile: () => cache.read("youtube")
+      }
+    };
+
+    const apolloServer = new ApolloServer({
+      typeDefs,
+      resolvers
     });
 
+    apolloServer.applyMiddleware({ app }); // app is from an existing express app
+
+    // CFonts.say("ISOBEL", {
+    //   font: "3d", // define the font face
+    //   align: "left", // define text alignment
+    //   colors: ["yellow", "cyan"] // define all colors
+    // });
+
     console.log(`🐶 ISOBEL listening on port ${port}.`);
+    console.log(
+      `🚀 GraphQL is ready at http://localhost:4000${apolloServer.graphqlPath}`
+    );
 
     return new Promise((resolve, reject) => {
       app.get("/", (req, res) => {
@@ -73,9 +144,7 @@ module.exports = class ISOBEL {
 
       app.listen(port, error => {
         console.log("⚙️ Starting caching");
-
         if (error) return reject(error);
-
         services.forEach(service => startCaching(service, cache));
 
         return resolve({ port });

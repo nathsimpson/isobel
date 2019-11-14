@@ -9,6 +9,14 @@ const T = new Twit({
   strictSSL: true // optional - requires SSL certificates to be valid.
 });
 
+const TweetType = `
+type Tweet {
+  id: ID!
+  text: String
+  place: String
+  image: String
+}`;
+
 exports.fetchLatestTweets = async params => {
   // check if all params are set
   ["username"].forEach(key => {

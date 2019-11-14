@@ -3,7 +3,11 @@ const axios = require("axios");
 const accessToken = process.env.GITHUB_ACCESS_TOKEN;
 
 exports.getProfile = async () => {
-  const result = await axios({
+  const {
+    data: {
+      data: { viewer }
+    }
+  } = await axios({
     url: "https://api.github.com/graphql",
     method: "post",
     headers: { Authorization: `bearer ${accessToken}` },
@@ -33,5 +37,5 @@ exports.getProfile = async () => {
     throw new Error(err.response.statusText);
   });
 
-  return result.data;
+  return viewer;
 };

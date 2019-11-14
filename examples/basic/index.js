@@ -12,10 +12,21 @@ const dribbble = require("@isobel/dribbble");
 const youtube = require("@isobel/youtube");
 const github = require("@isobel/github");
 
+dribbble.fetchLatestShots = {
+  function: () => {},
+  typedefs: ""
+};
+
+dribbble.followerCount = {
+  function: () => {},
+  typedefs: ""
+};
+
 const services = [
   {
     name: "dribbble",
     func: dribbble.fetchLatestShots,
+    typeDefs: dribbble.types,
     interval: toMs.hours(24),
     params: {
       accessToken: process.env.DRIBBBLE_ACCESS_TOKEN
