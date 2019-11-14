@@ -10,5 +10,6 @@
     },
     "files": "**/*.{md,markdown,mdx}",
     "ignore": ["scratchpad.md"]
-  }
+  },
+  "menu": ["Welcome", "Getting Started", "Guides", "Packages", "Services"]
 }
