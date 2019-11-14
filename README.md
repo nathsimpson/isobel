@@ -1,7 +1,5 @@
 # ISOBEL 🐶
 
-[![CircleCI](https://circleci.com/gh/nathsimpson/isobel.svg?style=svg)](https://circleci.com/gh/nathsimpson/isobel)
-
 <span style="font-size: 1.5em;">
 Welcome!
 Isobel is a beginner friendly NodeJS framework for fetching data from your social profiles and other sources, for display in your own apps and websites. Isobel periodically fetches data from the services that you teach her, so the data is always there when you need it.
