@@ -9,8 +9,6 @@ A great example is Twitter, which gets the latest posts from your Twitter feed. 
 
 Isobel includes a bunch of premade services, but you can also create your own.
 
-Once Isobel is up and running, you can access your data in a JSON at a specific URL. e.g `(http://example-isobel-url.com/get/(endpoint name)`
-
 Here is a minimum implementation of Isobel.
 
 ```javascript
@@ -35,6 +33,16 @@ Isobel.start().catch(error => {
   console.error("Error:", error);
   process.exit(1);
 });
+```
+
+Once Isobel is up and running, you can access your data in a JSON at a specific URL. e.g `localhost:4000/get/nasa`
+
+```json
+{
+  "url": "https://apod.nasa.gov/apod/image/1911/jC-L-TM_SunFinal5HRweb1024.jpg",
+  "hdurl": "https://apod.nasa.gov/apod/image/1911/jC-L-TM_SunFinal5HRweb.jpg",
+  "explanation": "On November 11, 2019 the Sun was mostly quiet, experiencing a minimum in its 11 year cycle of activity. In fact, the only spot v..."
+}
 ```
 
 Ready to go? head to the [Getting Started guide](https://isobeljs.com/guides-getting-started) to...well...get started!
